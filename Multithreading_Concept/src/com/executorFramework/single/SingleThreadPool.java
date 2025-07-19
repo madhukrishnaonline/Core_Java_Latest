@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.executorFramework.model.Citizen;
+
 public class SingleThreadPool implements Runnable {
 	private Citizen citizen;
 

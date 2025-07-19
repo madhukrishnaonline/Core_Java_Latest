@@ -9,6 +9,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
+import com.executorFramework.model.Citizen;
+
 public class ScheduledThreadPool implements Callable<Object> {
 	private Citizen citizen;
 

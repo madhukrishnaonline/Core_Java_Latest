@@ -29,5 +29,4 @@ public class MissingNumbers1To100 {
 //		System.out.println(missingNumber(arr));
 		missingNumbers(arr);
 	}
-
 }

@@ -12,7 +12,9 @@ public class FileInputOutput {
 		System.out.println("Enter the File Path ::");
 		String filePath = scanner.nextLine();
 		File file = new File(filePath);
+		
 		FileInputStream fileInputStream = new FileInputStream(file);
+		
 		File dest =new File("C:\\Users\\krishna\\Pictures\\PICS\\mk.jpg");
 		FileOutputStream fileOutputStream = new FileOutputStream(dest);
 		System.out.println("Writing Data..."+file.getName()+" To "+dest.getName());

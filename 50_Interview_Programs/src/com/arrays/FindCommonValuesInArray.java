@@ -24,5 +24,4 @@ public class FindCommonValuesInArray {
 		Integer[] arr2 = new Integer[] {1,2,3,5,6,2};
 		commonValues(arr1, arr2).forEach(System.out::println);
 	}
-
 }

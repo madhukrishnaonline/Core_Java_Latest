@@ -9,5 +9,6 @@ public class FindingSubStrings {
 				System.out.println(str.substring(i, j));
 			} // inner loop
 		} // outer loop
+		System.out.println(len*(len+1)/2);
 	}// main
 }// class

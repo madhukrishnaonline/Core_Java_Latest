@@ -1,22 +1,39 @@
 package com.map;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class MapOperations {
 	public static void main(String[] args) {
 
-		HashMap<String,Long> map = new HashMap<>();
-		map.put("krishna",9121493579l);
-		map.put("krishna",9121493578l);
-		map.put("krishna",9121493577l);
-		map.put("Madhu",9121493579l);
-		
-		int size = map.size();
-		System.out.println(size);
-		
-		List<String> list = map.keySet().stream().collect(Collectors.toList());
-		System.out.println(list);
-	}//main
-}//class
+		Map<String, List<Integer>> map = new HashMap<>();
+		map.put("Apple", new ArrayList<>(Arrays.asList(3)));
+		map.put("Banana", new ArrayList<>(Arrays.asList(7)));
+
+		map.compute("Apple", (k, v) -> null);
+		map.compute("Pineapple", (k, v) -> new ArrayList<>(Arrays.asList(10)));
+
+		List<Integer> list = map.computeIfPresent("Banana", (k, v) -> {
+			v.add(6);
+			return v;
+		});
+		if (list != null) {
+			list.add(8);
+		}
+
+		map.computeIfAbsent("Dragon Fruit", k -> {
+			List<Integer> dragonList = new ArrayList<>();
+			dragonList.add(15);
+			return dragonList;
+		}).add(9);
+		map.computeIfAbsent("Banana", k -> Arrays.asList(8));
+
+		System.out.println("Size of Map :: " + map.size());
+		map.forEach((k, v) -> {
+			System.out.println(k + "=" + v);
+		});
+	}// main
+}// class

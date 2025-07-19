@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.executorFramework.model.Citizen;
+
 public class CachedThreadPool implements Runnable {
 	private Citizen citizen;
 
@@ -35,7 +37,7 @@ public class CachedThreadPool implements Runnable {
 		Citizen citizen13 = new Citizen(123468, "Yogitha", "MEDICAID");
 
 		List<Citizen> citizenList = new ArrayList<>(Arrays.asList(citizen1, citizen2, citizen3, citizen4, citizen5,
-				citizen6, citizen7, citizen8, citizen9, citizen10, citizen11,citizen12,citizen13));
+				citizen6, citizen7, citizen8, citizen9, citizen10, citizen11, citizen12, citizen13));
 
 		ExecutorService service = Executors.newCachedThreadPool();
 		for (Iterator<Citizen> iterator = citizenList.iterator(); iterator.hasNext();) {
@@ -47,7 +49,7 @@ public class CachedThreadPool implements Runnable {
 	}// main
 
 	public void triggerMessage(Citizen citizen) {
-		System.out.println("FixedThreadPool.triggerMessage()"+Thread.currentThread().getName());
+		System.out.println("FixedThreadPool.triggerMessage()" + Thread.currentThread().getName());
 		String msg = "Hi " + citizen.getName() + " based on your SSN " + citizen.getSsn() + " regarding the Plan "
 				+ citizen.getPlanName() + " has been onboarded";
 		System.out.println(msg);

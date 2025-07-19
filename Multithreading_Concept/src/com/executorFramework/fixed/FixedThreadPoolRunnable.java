@@ -8,6 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
+import com.executorFramework.model.Citizen;
+
 public class FixedThreadPoolRunnable implements Runnable {
 	private Citizen citizen;
 
@@ -37,15 +39,15 @@ public class FixedThreadPoolRunnable implements Runnable {
 				citizen6, citizen7, citizen8, citizen9, citizen10, citizen11));
 
 //		ExecutorService service = Executors.newFixedThreadPool(3);
-		ExecutorService service = Executors.newFixedThreadPool(3,new ThreadFactory() {
+		ExecutorService service = Executors.newFixedThreadPool(3, new ThreadFactory() {
 			@Override
 			public Thread newThread(Runnable r) {
-                Thread t = new Thread();
-                t.setName("ThreadPool");
+				Thread t = new Thread();
+				t.setName("ThreadPool");
 				return t;
-			}//newThread
+			}// newThread
 		});
-		
+
 		for (Iterator<Citizen> iterator = citizenList.iterator(); iterator.hasNext();) {
 			Citizen citizen = (Citizen) iterator.next();
 			FixedThreadPoolRunnable pool = new FixedThreadPoolRunnable(citizen);
@@ -55,7 +57,7 @@ public class FixedThreadPoolRunnable implements Runnable {
 	}// main
 
 	public void triggerMessage(Citizen citizen) {
-		System.out.println("FixedThreadPool.triggerMessage()"+Thread.currentThread().getName());
+		System.out.println("FixedThreadPool.triggerMessage()" + Thread.currentThread().getName());
 		String msg = "Hi " + citizen.getName() + " based on your SSN " + citizen.getSsn() + " regarding the Plan "
 				+ citizen.getPlanName() + " has been onboarded";
 		System.out.println(msg);

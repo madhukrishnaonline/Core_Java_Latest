@@ -12,6 +12,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import com.executorFramework.model.Citizen;
+
 public class ScheduledThreadPoolSchedule implements Callable<Object> {
 	private Citizen citizen;
 
@@ -49,11 +51,11 @@ public class ScheduledThreadPoolSchedule implements Callable<Object> {
 			ScheduledThreadPoolSchedule pool = new ScheduledThreadPoolSchedule(citizen);
 //			ScheduledFuture<Object> scheduledFuture = service.schedule(pool, 1, TimeUnit.MINUTES);
 			ScheduledFuture<Object> scheduledFuture = service.schedule(pool, 1, TimeUnit.MINUTES);
-			
+
 			System.out.println(LocalTime.now());
 			if (scheduledFuture.isDone()) {
 				System.out.println(scheduledFuture.get());
-				System.out.println("Done "+LocalTime.now());
+				System.out.println("Done " + LocalTime.now());
 			}
 		} // for
 		service.shutdown();

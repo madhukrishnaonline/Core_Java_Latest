@@ -6,23 +6,24 @@ import java.util.StringTokenizer;
 
 public class FindPalindromeInGivenString {
 
-	static List<String> printPalindromes(String str) {		
-		StringTokenizer tokenizer = new StringTokenizer(str," ");
-		StringBuilder builder = new StringBuilder();
+	static List<String> printPalindromes(String str) {
+		StringTokenizer tokenizer = new StringTokenizer(str, " ");
 		List<String> list = new ArrayList<>();
 		while (tokenizer.hasMoreElements()) {
+			StringBuilder builder = new StringBuilder();
 			String nextToken = tokenizer.nextToken();
 			builder.append(nextToken);
 			String reverse = builder.reverse().toString();
-			if(nextToken.equalsIgnoreCase(reverse)) {
+			if (nextToken.equalsIgnoreCase(reverse)) {
 				list.add(nextToken);
-			}//if
-			builder.setLength(0);
-			}//while
+			} // if
+//			builder.setLength(0);
+		} // while
 		return list;
-	}//printPalindromes
+	}// printPalindromes
+
 	public static void main(String[] args) {
-          String str = "My Amma will be here in Five minutes Mam";
-          printPalindromes(str).forEach(System.out::println);
-	}//main
-}//class
+		String str = "My Amma will be here in Five minutes Mam";
+		printPalindromes(str).forEach(System.out::println);
+	}// main
+}// class
