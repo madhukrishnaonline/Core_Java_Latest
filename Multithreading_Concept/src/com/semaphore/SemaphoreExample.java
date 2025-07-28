@@ -4,12 +4,12 @@ import java.util.concurrent.Semaphore;
 
 public class SemaphoreExample implements Runnable {
 
-	private static Semaphore semaphore = new Semaphore(2,true);
+	private static Semaphore semaphore = new Semaphore(2, true);
 
 	public static void main(String[] args) {
 		for (int i = 1; i <= 5; i++) {
-             Thread thread = new Thread(new SemaphoreExample());
-             thread.start();
+			Thread thread = new Thread(new SemaphoreExample());
+			thread.start();
 		}
 	}// main
 
